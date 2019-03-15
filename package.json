@@ -1,0 +1,26 @@
+{
+  "name": "ezs-unzip-istex",
+  "version": "1.0.0",
+  "description": "A proof of concept to unzip dl.istex.fr files and access to their JSON data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parmentf/ezs-unzip-istex.git"
+  },
+  "keywords": [
+    "ezs",
+    "stream",
+    "zip",
+    "json",
+    "istex"
+  ],
+  "author": "François PARMENTIER <francois.parmentier@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/parmentf/ezs-unzip-istex/issues"
+  },
+  "homepage": "https://github.com/parmentf/ezs-unzip-istex#readme"
+}
