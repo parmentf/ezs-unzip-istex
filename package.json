@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/parmentf/ezs-unzip-istex/issues"
   },
-  "homepage": "https://github.com/parmentf/ezs-unzip-istex#readme"
+  "homepage": "https://github.com/parmentf/ezs-unzip-istex#readme",
+  "dependencies": {
+    "unzipper": "^0.9.11"
+  }
 }
