@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/parmentf/ezs-unzip-istex#readme",
   "dependencies": {
-    "unzipper": "^0.9.11"
+    "ezs": "8.1.0",
+    "unzipper": "0.9.11"
   }
 }
