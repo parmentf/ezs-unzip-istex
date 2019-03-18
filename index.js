@@ -1,6 +1,6 @@
 const unzipper = require('unzipper');
 const fs = require('fs');
-const path = require('path');
+const ezs = require('ezs');
 
 fs.createReadStream('./data/istex-subset-2019-03-15-10.zip')
     .pipe(unzipper.Parse())
@@ -11,7 +11,16 @@ fs.createReadStream('./data/istex-subset-2019-03-15-10.zip')
             entry.autodrain();
         }
         else if (fileName.endsWith('.json')) {
-            entry.pipe(fs.createWriteStream(__dirname+'/output/'+path.basename(fileName)));
+            entry
+                .pipe(ezs(function (data, feed) {
+                    if (this.isLast()) {
+                        return feed.close();
+                    }
+                    const obj = JSON.parse(data.toString());
+                    feed.write(obj);
+                    feed.end();
+                }))
+                .pipe(ezs('debug'));
         }
         else {
             entry.autodrain();
