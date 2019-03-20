@@ -11,16 +11,15 @@ fs.createReadStream('./data/istex-subset-2019-03-15-10.zip')
             entry.autodrain();
         }
         else if (fileName.endsWith('.json')) {
+            let str = '';
             entry
-                .pipe(ezs(function (data, feed) {
-                    if (this.isLast()) {
-                        return feed.close();
-                    }
-                    const obj = JSON.parse(data.toString());
-                    feed.write(obj);
-                    feed.end();
-                }))
-                .pipe(ezs('debug'));
+                .on('data', buf => {
+                    str += buf.toString();
+                })
+                .on('end', () => {
+                    const obj = JSON.parse(str);
+                    console.dir(obj);
+                });
         }
         else {
             entry.autodrain();
